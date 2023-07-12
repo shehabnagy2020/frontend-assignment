@@ -18,17 +18,6 @@ const FormInput = ({
   let errorMsg = errors && errors[name];
   const val = useWatch({ name, control });
   const parentRef = useRef<any>();
-  let { onBlur: oldBlur, ...inputProps } = register(name);
-
-  //   const handleInputFocus = () => {
-  //     if (parentRef?.current && parentRef?.current.classList)
-  //       parentRef.current.classList.add("focused");
-  //   };
-  //   const handleInputBlur = async (event: FocusEventHandler) => {
-  //     if (parentRef?.current && parentRef?.current.classList)
-  //       parentRef.current.classList.remove("focused");
-  //     await oldBlur(event);
-  //   };
 
   return (
     <div className="form-input-container">
