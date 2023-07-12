@@ -1,4 +1,177 @@
 /* DO NOT CHANGE THIS ROOT CLASS NAME*/
 #task-5 {
   /* Styles goes here */
+
+  $base-color: rgb(5, 130, 218);
+  $secondary-color: rgb(149, 152, 154);
+  $white-color: rgb(255, 255, 255);
+
+  .form-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    width: 90%;
+
+    @media (min-width: 768px) {
+      width: 60%;
+    }
+    @media (min-width: 1024px) {
+      width: 50%;
+    }
+
+    .form-title {
+      color: $base-color;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 0.5rem 0;
+    }
+    .form-description {
+      color: $secondary-color;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0 auto 1.8rem 0;
+    }
+
+    .form-input-container {
+      width: 100%;
+      position: relative;
+      margin: 2.1rem 0;
+
+      .form-input-title {
+        color: $secondary-color;
+        font-weight: 600;
+        position: absolute;
+        top: -1.2rem;
+        transition: 0.2s all;
+
+        opacity: 0;
+        visibility: hidden;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .input-error {
+        color: red;
+        font-weight: 500;
+        font-size: 0.9rem;
+        position: absolute;
+        bottom: -1.5rem;
+        transition: 0.2s all;
+
+        opacity: 0;
+        visibility: hidden;
+
+        &.active {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .icon-input-container {
+        transition: 0.3s all;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        border-bottom: $secondary-color 2px solid;
+        padding: 0.7rem 0;
+        width: 100%;
+
+        div {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          width: 100%;
+        }
+        button {
+          background: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+
+        &:hover,
+        &.focused {
+          border-bottom: $base-color 2px solid;
+          .form-icon {
+            fill: $base-color;
+          }
+        }
+
+        &.error {
+          border-bottom: red 2px solid;
+          .form-icon {
+            fill: red;
+          }
+        }
+        &.focused {
+          border-bottom: $base-color 2px solid;
+          .form-icon {
+            fill: $base-color;
+          }
+        }
+
+        .form-icon {
+          width: 1.3rem;
+          fill: $secondary-color;
+          transition: 0.3s all;
+        }
+        .form-input {
+          border: none;
+          background: transparent;
+          flex-grow: 1;
+          outline: none;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .forget-container {
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      margin-top: -0.2rem;
+
+      button {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        color: $base-color;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+    }
+
+    .form-submit {
+      margin: 1.7rem 0 0 0;
+      width: 100%;
+      background: $base-color;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-weight: 500;
+      color: $white-color;
+      font-size: 1.2rem;
+      border-radius: 0.8rem;
+      letter-spacing: 0.15rem;
+      cursor: pointer;
+      transition: 0.3s all;
+
+      &:hover {
+        box-shadow: 0 5px 15px rgba(5, 130, 218, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: auto;
+      }
+    }
+  }
 }

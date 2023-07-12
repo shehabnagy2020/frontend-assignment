@@ -1,0 +1,124 @@
+$base-color: rgb(5, 130, 218);
+$secondary-color: rgb(149, 152, 154);
+$white-color: rgb(255, 255, 255);
+
+.list-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  width: 90%;
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+
+  .form-input-container {
+    width: 100%;
+    position: relative;
+    margin: 0 0 2rem 0;
+
+    .form-input-title {
+      color: $base-color;
+      font-weight: 600;
+      position: absolute;
+      top: -0.7rem;
+      left: 1rem;
+      background: white;
+      transition: 0.2s all;
+      padding: 0 0.3rem;
+
+      opacity: 0;
+      visibility: hidden;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .icon-input-container {
+      transition: 0.3s all;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border: $secondary-color 2px solid;
+      padding: 0.8rem 0.8rem;
+      width: 100%;
+      border-radius: 0.8rem;
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        width: 100%;
+      }
+      button {
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+
+      &:hover,
+      &.focused {
+        border: $base-color 2px solid;
+      }
+
+      .form-input {
+        border: none;
+        background: transparent;
+        flex-grow: 1;
+        outline: none;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .items-list {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    .item-sep {
+      width: 100%;
+      background: $secondary-color;
+      height: 1px;
+      opacity: 0.3;
+    }
+
+    .item {
+      list-style-type: none;
+
+      button {
+        background: none;
+        border: none;
+        color: $secondary-color;
+        font-size: 1rem;
+        color: $secondary-color;
+        font-weight: 600;
+        transition: 0.3s all;
+        cursor: pointer;
+        &:hover {
+          color: $base-color;
+        }
+      }
+    }
+
+    .no-result {
+      color: $secondary-color;
+      font-size: 1rem;
+      color: $secondary-color;
+      font-weight: 600;
+    }
+  }
+}

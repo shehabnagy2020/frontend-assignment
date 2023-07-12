@@ -1,7 +1,8 @@
-import { FunctionComponent } from "react";
+import React, { FunctionComponent } from "react";
 
 // Components
 import Item from "./Item";
+import { DataArrProps } from "..";
 
 /*
  * The ListProps interface defines the types for the components props.
@@ -13,10 +14,25 @@ import Item from "./Item";
  * and remove the ListProps interface
  */
 
-interface ListProps {}
+interface ListProps {
+  dataList: DataArrProps[];
+}
 
-const List: FunctionComponent<ListProps> = (props) => {
-  return <div>#List goes here#</div>;
+const List: FunctionComponent<ListProps> = ({ dataList }) => {
+  return (
+    <div className="items-list">
+      {dataList?.length > 0 ? (
+        dataList.map((it, idx) => (
+          <React.Fragment key={idx}>
+            <Item item={it} />
+            {idx < dataList.length - 1 && <div className="item-sep" />}
+          </React.Fragment>
+        ))
+      ) : (
+        <div className="no-result">No result found, try another query</div>
+      )}
+    </div>
+  );
 };
 
 export default List;
